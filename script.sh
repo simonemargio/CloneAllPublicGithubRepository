@@ -17,11 +17,11 @@ takeType () {
   while :
   do
     printf "First, write if it's a ${GREEN}user${NC} or ${GREEN}org${NC}: "
-    read selctedType
+    read TYPE
 
-    case $selctedType in
+    case $TYPE in
       user|org)
-        selctedType="${selctedType}s"
+        TYPE="${TYPE}s"
         break
         ;;
       *)
@@ -29,14 +29,22 @@ takeType () {
         ;;
     esac
   done
-
-  TYPE=$selctedType
 }
 
 
+takeName () {
+  if [ $TYPE = "users" ]; then
+    printf "Ok, now enter the username of the user: "
+  else
+    printf "Ok, now enter the username of the organization: "
+  fi
+  
+  read NAME 
+}
+
 printWelcome
 takeType
-#takeName
+takeName
 
 echo $TYPE
 echo $NAME
