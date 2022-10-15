@@ -1,4 +1,4 @@
-# Download Public Github Repository
+# Clone public Github repository
 
 ## Index
 1. [What is](#What-is)
