@@ -9,13 +9,20 @@ NC="\033[0m"
 TYPE="" 
 NAME=""
 
-# Hey!
-printWelcome () {
-  printf "Download all public repositories on GitHub.\n"
+# Check if there is an internet connection
+checkInternetConnection () {
+  echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+
+  if [ ! $? -eq 0 ]; then
+      echo "Oops, you are currently offline!"
+      exit 1
+  fi
 }
 
 # Select between users and orgs
 takeType () {
+  printf "Download all public repositories on GitHub.\n"
+
   while :
   do
     printf "First, write if it's a ${GREEN}user${NC} or ${GREEN}org${NC}: "
@@ -52,7 +59,7 @@ executeCall () {
   xargs -L1 git clone 
 }
 
-printWelcome
+checkInternetConnection
 takeType
 takeName
 executeCall
