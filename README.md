@@ -20,5 +20,5 @@ Ok, now enter the username of the user: simonemargio
 The repositories will be downloaded to the folder where the script is run.
 
 ### Download
-Latest release: [here](https://github.com/simonemargio/DownloadAllPublicGithubRepository/releases/tag/v1.0.0)
+Latest release: [here](https://github.com/simonemargio/CloneAllPublicGithubRepository/releases/tag/v1.1.0)
 
